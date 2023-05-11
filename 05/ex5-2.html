@@ -13,6 +13,7 @@
 
         function button1Pressed() {
             doInsert();
+            doSelect2();
         }
 
         async function doInsert() {
@@ -25,6 +26,20 @@
 
             document.getElementById('result').innerHTML = "tweetしました";
             document.getElementById('tf2').value = "";
+        }
+
+        async function doSelect2() {
+            var sql = 'select * from Tweets order by time desc limit 20';
+            var objects = await osql.connect(sql);
+            console.log(objects);
+            var html = '';
+            html = html + '<ul>';
+            for (var i = 0; i < objects.length; i++) {
+                var object = objects[i];
+                html = html + '<li>' + object.id + ',' + object.name + ',' + object.tweet + ',' + object.time + '</li>';
+            }
+            html = html + '</ul>';
+            document.getElementById('result2').innerHTML = html;
         }
     </script>
 
@@ -39,6 +54,9 @@
     <button onclick="button1Pressed()">tweet</button>
     <br>
     <p id="result"></p>
+
+    <hr>
+    <p id="result2"></p>
 </body>
 
 </html>
