@@ -17,6 +17,10 @@
         function init() {
             var name = sessionStorage.getItem('username');
             document.getElementById('welcome').innerHTML = 'ようこそ' + name + 'さん';
+            var id = sessionStorage.getItem('userid');
+            var URL = document.getElementById('link');
+            var NEWURL = URL.href + '?userid=' + id;
+            document.getElementById('link').href = NEWURL;
         }
     </script>
 
@@ -25,7 +29,7 @@
 <body>
     <h1>ユーザトップ</h1>
     <p id="welcome"></p>
-    <p><a href="update.html">ユーザ情報変更</a></p>
+    <p><a id="link" href="update.html">ユーザ情報変更</a></p>
     <hr>
 
 </body>

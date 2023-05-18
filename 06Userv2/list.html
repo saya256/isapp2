@@ -11,6 +11,11 @@
     <script>
         osql.requireLogin();//すべてのページに入れる．google認証をして，osql.connect()や，osql.getMe()を使えるようにしてくれる．
 
+        
+        function buttonPressed() {
+            execSelect();
+        }
+
         $(document).ready(function () {
             execSelect();
         });
@@ -38,6 +43,8 @@
 
 <body>
     <h1>Users</h1>
+    <label>ID:<input type="text" id="text"></label>
+    <button onclick="buttonPressed()"><object data="" type="">削除</object></button>
     <p id="result">xxxx</p>
 </body>
 
