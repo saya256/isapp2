@@ -21,6 +21,10 @@
             var URL = document.getElementById('link');
             var NEWURL = URL.href + '?userid=' + id;
             document.getElementById('link').href = NEWURL;
+
+            var URL2 = document.getElementById('link2');
+            var NEWURL2 = URL2.href + '?userid=' + id;
+            document.getElementById('link2').href = NEWURL2;
         }
     </script>
 
@@ -30,6 +34,7 @@
     <h1>ユーザトップ</h1>
     <p id="welcome"></p>
     <p><a id="link" href="update.html">ユーザ情報変更</a></p>
+    <p><a id="link2" href="tweet.html">ツイートはこちら</a></p>
     <hr>
 
 </body>
