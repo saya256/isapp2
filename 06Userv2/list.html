@@ -11,9 +11,8 @@
     <script>
         osql.requireLogin();//すべてのページに入れる．google認証をして，osql.connect()や，osql.getMe()を使えるようにしてくれる．
 
-        
         function buttonPressed() {
-            execSelect();
+            exec2Select();
         }
 
         $(document).ready(function () {
@@ -36,6 +35,14 @@
             }
             html = html + '</table>';
             document.getElementById('result').innerHTML = html;
+        }
+
+        async function exec2Select() {
+            var userid = document.getElementById('text').value;
+            var sql = `delete from Users where id = "${userid}"`;
+            var objects = await osql.connect(sql);
+            console.log(objects);
+            document.getElementById('result').innerHTML = 'OK';
         }
     </script>
 
